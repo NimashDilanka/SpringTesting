@@ -9,7 +9,7 @@ public class TrackCoachTest extends TestCase
     public void testCoach()
     {
         Coach trCoach = new TrackCoach();
-        assertEquals( "track coach",trCoach.getDailyWorkOut() );
+        assertEquals( "\n\nget the massagetrack coach\n\n\n",trCoach.getDailyWorkOut() );
     }
 
 }
