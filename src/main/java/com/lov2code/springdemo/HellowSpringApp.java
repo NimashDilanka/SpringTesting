@@ -16,7 +16,14 @@ public class HellowSpringApp
         //call methos on the bean
         System.out.println(theCoath.getDailyWorkOut());
 
+        //setter injection
+        Coach cricketCoach = context.getBean( "myCricketCoach", Coach.class );
+
+        //call setter injected object
+        System.out.println(cricketCoach.getDailyWorkOut());
+
         //close the context
         context.close();
+
     }
 }
