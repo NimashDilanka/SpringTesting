@@ -22,6 +22,10 @@ public class HellowSpringApp
         //call setter injected object
         System.out.println(cricketCoach.getDailyWorkOut());
 
+        //setter injection
+        Coach cricketCoach2 = context.getBean( "myCricketCoach2", Coach.class );
+        System.out.println(cricketCoach2.getDailyWorkOut());
+
         //close the context
         context.close();
 
