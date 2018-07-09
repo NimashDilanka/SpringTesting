@@ -41,19 +41,15 @@
 
     </bean>
 
-    <!-- bean scopes-->
-    <!-- prototype scope- new object creates for each request-->
-    <bean id="myPrototypeCoach"
+
+    <!-- define a method to run when a bean creates and run when bean get destroy-->
+    <bean id="myinitCoach"
           class = "com.lov2code.springdemo.TrackCoach"
-          scope = "prototype">
+          init-method="doStartupStuffFunction"
+          destroy-method="doEndupStuffFunction">
 
     </bean>
-    <!-- sigleton scope- same object passes for each request-->
-    <bean id="mySingletonCoach"
-          class = "com.lov2code.springdemo.TrackCoach"
-          scope = "singleton">
 
-    </bean>
 
 
 </beans>
