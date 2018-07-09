@@ -14,7 +14,7 @@
           class = "com.lov2code.springdemo.TrackCoach"
           init-method="doStartupStuffFunction"
           destroy-method="doEndupStuffFunction">
-
+    <!--For "prototype" scoped beans, Spring does not call the destroy method.  Gasp!  -->
     </bean>
 
 
