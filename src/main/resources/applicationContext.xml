@@ -40,4 +40,20 @@
         <property name="team" value="${foo.team}"/>
 
     </bean>
+
+    <!-- bean scopes-->
+    <!-- prototype scope- new object creates for each request-->
+    <bean id="myPrototypeCoach"
+          class = "com.lov2code.springdemo.TrackCoach"
+          scope = "prototype">
+
+    </bean>
+    <!-- sigleton scope- same object passes for each request-->
+    <bean id="mySingletonCoach"
+          class = "com.lov2code.springdemo.TrackCoach"
+          scope = "singleton">
+
+    </bean>
+
+
 </beans>

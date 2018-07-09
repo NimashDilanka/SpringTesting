@@ -26,6 +26,17 @@ public class HellowSpringApp
         Coach cricketCoach2 = context.getBean( "myCricketCoach2", Coach.class );
         System.out.println(cricketCoach2.getDailyWorkOut());
 
+
+        //objects creation with prototype approach
+        Coach pc1 = context.getBean( "myPrototypeCoach", Coach.class );
+        Coach pc2 = context.getBean( "myPrototypeCoach", Coach.class );
+        System.out.println(pc1.equals( pc2 ));
+
+        //objects creation with singleton approach/default approach
+        Coach pc3 = context.getBean( "mySingletonCoach", Coach.class );
+        Coach pc4 = context.getBean( "mySingletonCoach", Coach.class );
+        System.out.println(pc3.equals( pc4 ));
+
         //close the context
         context.close();
 
