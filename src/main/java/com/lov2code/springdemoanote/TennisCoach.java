@@ -3,7 +3,9 @@ package com.lov2code.springdemoanote;
 import com.lov2code.springdemo.Coach;
 import org.springframework.stereotype.Component;
 
-@Component("myCoach")
+//if bean id name is not specified in the component(...)
+//then default bean id is made up by spring called "tennisCoach"
+@Component
 public class TennisCoach implements Coach
 {
     @Override public String getDailyWorkOut()

@@ -11,7 +11,9 @@ public class MyApp
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext( "applicationContextBeanLifeCycle.xml" );
 
-        Coach c = context.getBean( "myCoach", Coach.class );
+        //if bean id name is not specified in the component(...)
+        //then default bean id is made up by spring called "tennisCoach"
+        Coach c = context.getBean( "tennisCoach", Coach.class );
 
         System.out.println(c.getDailyWorkOut());
     }
