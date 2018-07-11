@@ -11,7 +11,11 @@ public class TennisCoach implements Coach
 {
     private final FortuneService fortuneService;
 
-    @Autowired  //constructor injection-auto wired by Happy fortune service
+    //As of Spring Framework 4.3, an @Autowired annotation on such a constructor is no longer necessary
+    //if the target bean only defines one constructor to begin with. However, if several constructors are available,
+    // at least one must be annotated to teach the container which one to use.I personally prefer to use the @Autowired
+    // annotation because it makes the code more readable. But as mentioned, the @Autowired is not required for this scenario.
+    //@Autowired  //constructor injection-auto wired by Happy fortune service
     public TennisCoach( FortuneService fortuneService )
     {
         this.fortuneService = fortuneService;
