@@ -9,17 +9,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach
 {
+
     private FortuneService fortuneService;
 
-    @Override public String getDailyWorkOut()
+    @Override
+    public String getDailyWorkOut()
     {
         return "\n\nget the tennis coach\n\n\n"+fortuneService.getFortuneService();
     }
 
     @Autowired
-    public void setFortuneService( FortuneService fortuneService )
+    public void anyMethod( FortuneService fortuneService )
     {
-        this.fortuneService = fortuneService;
+        this.fortuneService=fortuneService;
     }
 
     //adding a init method
