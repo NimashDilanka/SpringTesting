@@ -9,19 +9,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach
 {
-
+    //using reflection, spring sets instance for this
+    //no setter methods need
+    //this is field injection
+    @Autowired
     private FortuneService fortuneService;
 
     @Override
     public String getDailyWorkOut()
     {
         return "\n\nget the tennis coach\n\n\n"+fortuneService.getFortuneService();
-    }
-
-    @Autowired
-    public void anyMethod( FortuneService fortuneService )
-    {
-        this.fortuneService=fortuneService;
     }
 
     //adding a init method
