@@ -11,5 +11,6 @@
     <!-- Define your beans here -->
     <!-- add entry to enable components scanning-->
     <context:component-scan base-package="com.lov2code.springdemoanote"/>
+    <context:property-placeholder location="classpath:sport.properties"/>
     
 </beans>

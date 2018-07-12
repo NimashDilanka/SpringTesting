@@ -3,6 +3,7 @@ package com.lov2code.springdemoanote;
 import com.lov2code.springdemo.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 //if bean id name is not specified in the component(...)
@@ -11,6 +12,12 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach
 {
     private FortuneService fortuneService;
+
+    //set values froma file
+    @Value( "${foo.email}" )
+    private String email;
+    @Value( "${foo.team}" )
+    private String team;
 
     //need to set qualifier inside the constructor for constructor autowiring
     @Autowired
@@ -22,7 +29,8 @@ public class TennisCoach implements Coach
     @Override
     public String getDailyWorkOut()
     {
-        return "\n\nget the tennis coach\n\n\n"+fortuneService.getFortuneService();
+        return "\n\nget the tennis coach\n\n\n"+fortuneService.getFortuneService()+
+                email+team;
     }
 
     //adding a init method
