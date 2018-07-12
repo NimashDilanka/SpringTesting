@@ -1,6 +1,5 @@
 package com.lov2code.configure;
 
-import com.lov2code.springdemo.Coach;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class JavaConfigDemo
@@ -13,7 +12,7 @@ public class JavaConfigDemo
         AnnotationConfigApplicationContext context  =
                 new AnnotationConfigApplicationContext( SportConfig.class );
 
-        Coach c = context.getBean( "tennisCoach", Coach.class );
+        Coach c = context.getBean( "swimCoach", Coach.class );
         System.out.println(c.getDailyWorkOut());
     }
 
