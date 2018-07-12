@@ -10,12 +10,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach
 {
-    //using reflection, spring sets instance for this
-    //no setter methods need
-    //this is field injection
-    @Autowired
-    @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
+
+    //need to set qualifier inside the constructor for constructor autowiring
+    @Autowired
+    public TennisCoach( @Qualifier("randomFortuneService") FortuneService fortuneService )
+    {
+        this.fortuneService = fortuneService;
+    }
 
     @Override
     public String getDailyWorkOut()
