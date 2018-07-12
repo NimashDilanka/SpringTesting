@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 //if bean id name is not specified in the component(...)
 //then default bean id is made up by spring called "tennisCoach"
 @Component
@@ -41,14 +44,18 @@ public class TennisCoach implements Coach
     }
 
     //adding a init method
+    @PostConstruct
     public void doStartupStuffFunction()
     {
         System.out.println("\n\ninitiate init function called");
     }
 
     //adding a destroy method
+    @PreDestroy
     public void doEndupStuffFunction()
     {
         System.out.println("\n\ndestroy method called");
     }
+
+
 }
