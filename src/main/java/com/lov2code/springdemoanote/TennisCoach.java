@@ -2,6 +2,7 @@ package com.lov2code.springdemoanote;
 
 import com.lov2code.springdemo.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //if bean id name is not specified in the component(...)
@@ -13,6 +14,7 @@ public class TennisCoach implements Coach
     //no setter methods need
     //this is field injection
     @Autowired
+    @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
 
     @Override
