@@ -13,6 +13,13 @@ public class TennisCoach implements Coach
 {
     private FortuneService fortuneService;
 
+    //sequence:
+    /*
+    1. Construct an instance of class
+    2. Inject dependencies
+    3. Set properties etc (@Value)
+    */
+
     //set values froma file
     @Value( "${foo.email}" )
     private String email;
