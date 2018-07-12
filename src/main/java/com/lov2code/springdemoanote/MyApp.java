@@ -15,6 +15,13 @@ public class MyApp
         //then default bean id is made up by spring called "tennisCoach"
         Coach c = context.getBean( "tennisCoach", Coach.class );
 
+        /*
+        of no qualifiers are set:
+        Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException:
+        No qualifying bean of type 'com.lov2code.springdemoanote.FortuneService' available:
+        expected single matching bean but found 2: happyFortuneService,randomFortuneService
+         */
+
         System.out.println(c.getDailyWorkOut());
     }
 }
