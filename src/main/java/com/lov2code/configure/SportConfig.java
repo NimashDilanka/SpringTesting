@@ -3,9 +3,11 @@ package com.lov2code.configure;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 //a configuration class. removing XML files
 @Configuration
+@PropertySource( "classpath:sport.properties" ) //adding a property file for config class
 @ComponentScan("com.lov2code.configure")
 public class SportConfig
 {
