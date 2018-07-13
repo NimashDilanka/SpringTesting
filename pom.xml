@@ -12,11 +12,6 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <spring.version>4.1.6.RELEASE</spring.version>
-        <jstl.version>1.2</jstl.version>
-        <junit.version>4.11</junit.version>
-        <logback.version>1.0.13</logback.version>
-        <jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
     </properties>
 
     <dependencies>
@@ -28,49 +23,20 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Spring Core -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${jcl-over-slf4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <version>5.0.4.RELEASE</version>
         </dependency>
 
-        <!-- jstl -->
         <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>${jstl.version}</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
 
@@ -83,21 +49,38 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>2.3.2</version>
+            <version>3.3</version>
             <configuration>
+                <verbose>true</verbose>
+                <showWarnings>true</showWarnings>
                 <source>${jdk.version}</source>
                 <target>${jdk.version}</target>
             </configuration>
         </plugin>
 
-        <!-- For Maven Tomcat Plugin -->
+        <!-- Set war level -->
         <plugin>
-            <groupId>org.apache.tomcat.maven</groupId>
-            <artifactId>tomcat7-maven-plugin</artifactId>
-            <version>2.2</version>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.6</version>
             <configuration>
-                <path>/SpringMVCWebApp</path>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
             </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.10</version>
+            <executions>
+                <execution>
+                    <id>copy-dependencies</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>copy-dependencies</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
 
         </plugins>

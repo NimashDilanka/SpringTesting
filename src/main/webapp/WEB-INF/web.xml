@@ -1,3 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         id="WebApp_ID" version="3.1">
+
+<display-name>spring-mvc-demo</display-name>
+
+<!-- Spring MVC Configs -->
+
+<!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
+<servlet>
+    <servlet-name>dispatcher</servlet-name> <!-- provided by spring-->
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name> <!--where context config file located-->
+        <param-value>/WEB-INF/spring-mvc-demo-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+
+<!-- Step 2: Set up URL mapping for Spring MVC Dispatcher Servlet -->
+<servlet-mapping>
+    <servlet-name>dispatcher</servlet-name> <!-- have to match <servlet....> name-->
+    <url-pattern>/</url-pattern> <!-- match for any url, pass it to dispatcher servlet-->
+</servlet-mapping>
+
+</web-app>
+
 <!--domain knowledge-->
 <!--A Java servlet is a Java program that extends the capabilities of a server.-->
 <!--Although servlets can respond to any types of requests, they most commonly-->
@@ -8,22 +37,3 @@
 <!--Servlet technology is robust and scalable because of java language. Before Servlet, CGI (Common Gateway Interface)
 scripting language was popular as a server-side programming language. But there was many disadvantages of this technology. We have discussed these disadvantages below.-->
 <!--There are many interfaces and classes in the servlet API such as Servlet, GenericServlet, HttpServlet, ServletRequest, ServletResponse etc.-->
-
-<web-app>
-    <servlet>
-        <servlet-name>dispatcher</servlet-name> <!-- provided by spring-->
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        
-        <init-param>
-            <param-name>contextConfigLocation</param-name> <!--where context config file located-->
-            <param-name>/WEB-INF/spring-mvc-demo-servlet.xml</param-name>
-        </init-param>
-
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>  <!-- have to match <servlet....> name-->
-        <url-pattern>/</url-pattern> <!-- match for any url, pass it to dispatcher servlet-->
-    </servlet-mapping>
-</web-app>
