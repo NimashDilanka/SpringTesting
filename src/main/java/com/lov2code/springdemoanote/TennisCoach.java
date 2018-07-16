@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.Objects;
 
 //if bean id name is not specified in the component(...)
 //then default bean id is made up by spring called "tennisCoach"
@@ -57,5 +58,34 @@ public class TennisCoach implements Coach
         System.out.println("\n\ndestroy method called");
     }
 
+    @Override public boolean equals( Object o )
+    {
+        if( this == o )
+        {
+            return true;
+        }
+        if( o == null || getClass() != o.getClass() )
+        {
+            return false;
+        }
+        TennisCoach that = (TennisCoach) o;
+        return Objects.equals( fortuneService, that.fortuneService ) &&
+                Objects.equals( email, that.email ) &&
+                Objects.equals( team, that.team );
+    }
 
+    @Override public int hashCode()
+    {
+
+        return Objects.hash( fortuneService, email, team );
+    }
+
+    @Override public String toString()
+    {
+        return "TennisCoach{" +
+                "fortuneService=" + fortuneService +
+                ", email='" + email + '\'' +
+                ", team='" + team + '\'' +
+                '}';
+    }
 }
