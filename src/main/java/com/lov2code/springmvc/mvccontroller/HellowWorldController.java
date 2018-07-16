@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller //creating controller class of MVC structure
 public class HellowWorldController
 {
+    @RequestMapping("/")
+    public String showMainPageMethod()
+    {
+        return "main-menu";
+    }
     //now http://localhost:1010/SpringMVCWebApp/showFormRQ is a valid rq to server deployed by tomcat
     @RequestMapping("/showFormRQ")
     public String showFormMethod()
