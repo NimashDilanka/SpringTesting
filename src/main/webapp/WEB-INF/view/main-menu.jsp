@@ -4,7 +4,7 @@
 <h2> Spring MVC Demo - Home Page</h2>
 
 <hr>
-<a href="showFormRQ"> HellowWorld from</a>
+<a href="toUpperRQ"> To HellowWorld model </a>
 
 </body>
 </html>%>
