@@ -27,4 +27,6 @@
     <property name="suffix" value=".jsp" />
     </bean>
 
+    <!-- mapping resources with new location calling name-->
+    <mvc:resources mapping="/resourceLocation/**" location="/resources/" />
 </beans>
