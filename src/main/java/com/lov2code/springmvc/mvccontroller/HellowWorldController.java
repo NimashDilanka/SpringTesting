@@ -3,6 +3,7 @@ package com.lov2code.springmvc.mvccontroller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,11 +37,11 @@ public class HellowWorldController
         return "toUpperFromJSP";
     }
 
+    //bind request data through spring annotation
     @RequestMapping("/processUpperFormRQ")
-    public String processUpperFormMethod( HttpServletRequest request, Model model )
+    public String processUpperFormMethod( @RequestParam("studentName") String studentName, Model model )
     {
         //request has data came with GET RQ , model will be passed to returned view.
-        String studentName = request.getParameter( "studentName" );
         studentName=studentName.toUpperCase();
         String s = "Yo! " + studentName;
         model.addAttribute( "massage",s );

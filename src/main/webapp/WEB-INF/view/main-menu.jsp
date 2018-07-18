@@ -3,9 +3,9 @@
 <head>
 
 	<link rel="stylesheet" type="text/css"
-		  href="${pageContext.request.contextPath}/resourceLocation/css/my-test.css">
+		  href="${pageContext.request.contextPath}/resourceLocation/css/mytest.css">
 
-    <script src="${pageContext.request.contextPath}/resourceLocation/js/simple-test.js"></script>
+    <script src="${pageContext.request.contextPath}/resourceLocation/js/simpletest.js"></script>
 
 </head>
 <body>
