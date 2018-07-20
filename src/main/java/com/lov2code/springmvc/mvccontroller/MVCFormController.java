@@ -20,7 +20,7 @@ public class MVCFormController
     @RequestMapping("/processMVCForm")
     public String getProcessForm( @ModelAttribute("student") Student s)
     {
-        System.out.println("Logging input data: "+s.getFirstName()+" "+s.getLastName());
+        System.out.println("Logging input data: "+s.getFirstName()+" "+s.getLastName()+" "+s.getCountry());
         return "MVCFormTags/studentProcessForm";
     }
 

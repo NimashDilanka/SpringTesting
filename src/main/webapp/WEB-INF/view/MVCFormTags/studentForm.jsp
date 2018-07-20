@@ -12,6 +12,14 @@
     <br><br>
     Last Name: <form:input path="lastName"/> <!-- this maps to lastName of new Student()-->
     <br><br>
+
+    <form:select path="country">
+        <form:option value="NONE" label="--- Select ---"/>
+        <form:option value="SL" label="Srilanka"/>
+        <form:option value="GM" label="Germany"/>
+    </form:select>
+    <br><br>
+
     <input type="submit" value="Submit"/>
 </form:form>
 </body>
