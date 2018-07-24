@@ -11,6 +11,7 @@ public class Student
     private String lastName;
     private String country;
     private LinkedHashMap<String,String> countryOptions;
+    private String favouriteLanguage;
 
     public Student()
     {
@@ -64,5 +65,15 @@ public class Student
     public void setCountryOptions( LinkedHashMap<String, String> countryOptions )
     {
         this.countryOptions = countryOptions;
+    }
+
+    public String getFavouriteLanguage()
+    {
+        return favouriteLanguage;
+    }
+
+    public void setFavouriteLanguage( String favouriteLanguage )
+    {
+        this.favouriteLanguage = favouriteLanguage;
     }
 }
