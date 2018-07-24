@@ -7,16 +7,14 @@
 
 </head>
 <body>
-<form:form action="../processMVCForm" modelAttribute = "student"> <!--going to fill new Student() in model-->
+<form:form action="../MVCForm/processMVCForm" modelAttribute = "student"> <!--going to fill new Student() in model-->
     First Name: <form:input path="firstName"/> <!-- this maps to firstName of new Student()-->
     <br><br>
     Last Name: <form:input path="lastName"/> <!-- this maps to lastName of new Student()-->
     <br><br>
 
     <form:select path="country">
-        <form:option value="NONE" label="--- Select ---"/>
-        <form:option value="SL" label="Srilanka"/>
-        <form:option value="GM" label="Germany"/>
+        <form:options items="${student.countryOptions}"/>
     </form:select>
     <br><br>
 
