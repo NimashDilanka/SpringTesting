@@ -2,6 +2,7 @@
 <html>
 <head>
 
+<a href="MVCValidator/addPerson"> to Add a person form </a>
 	<link rel="stylesheet" type="text/css"
 		  href="${pageContext.request.contextPath}/resourceLocation/css/mytest.css">
 

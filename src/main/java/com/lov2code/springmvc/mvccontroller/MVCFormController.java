@@ -14,7 +14,7 @@ public class MVCFormController
     {
         Student s = new Student();
         theModel.addAttribute( "student",s );//attribute name, attribute value
-        return "MVCFormTags/studentForm"; //return the view form name
+        return "MVCFormTags/addPersonForm"; //return the view form name
     }
 
     @RequestMapping("/processMVCForm")
