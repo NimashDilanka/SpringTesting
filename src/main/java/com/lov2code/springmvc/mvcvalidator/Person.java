@@ -2,6 +2,8 @@ package com.lov2code.springmvc.mvcvalidator;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,7 +16,8 @@ public class Person
     @Size(min = 2, message = "minimum 2 character required")
     private String name;
 
-
+    @Min( value = 1,message = "number should be greater or equal to 1")
+    @Max( value = 10,message = "number should be less or equal to 10")
     private int age;
 
 
