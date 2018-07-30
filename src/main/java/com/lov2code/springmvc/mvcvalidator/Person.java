@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Component
@@ -14,6 +15,7 @@ public class Person
     //making filling this field is a required one
     @NotNull(message = "value is required")
     @Size(min = 2, message = "minimum 2 character required")
+    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "regex pattern not matched")
     private String name;
 
     @Min( value = 1,message = "number should be greater or equal to 1")
