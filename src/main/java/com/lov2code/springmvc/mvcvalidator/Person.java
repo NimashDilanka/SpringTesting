@@ -10,7 +10,7 @@ public class Person
 {
     //adding validation relus to Person class
     //making filling this field is a required one
-    @NotNull(message = "not null value is required")
+    @NotNull(message = "value is required")
     @Size(min = 2, message = "minimum 2 character required")
     private String name;
 

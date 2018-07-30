@@ -1,9 +1,12 @@
 package com.lov2code.springmvc.mvcvalidator;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,5 +41,18 @@ public class SpringMVCValidateController
         {
             return "MVCValidate/addPersonSuccess";
         }
+    }
+
+    @InitBinder
+    public void initBinder( WebDataBinder dataBinder )
+    {
+        //define string API StringTrimmerEditor.
+        //true means trim even to null result(if input is all white spaces)
+        StringTrimmerEditor strTrimEditor = new StringTrimmerEditor( true );
+
+        dataBinder.registerCustomEditor( String.class,strTrimEditor );
+        //now this pre-process every string from data
+        //removes leading and trailing white spaces
+        //if string only has white spaces trim it to 'null'
     }
 }
