@@ -28,6 +28,8 @@ public class SpringMVCValidateController
         //When performing Spring MVC validation, the location of the BindingResult parameter is very important.
         //In the method signature, the BindingResult parameter must immediately after the model attribute.
         //If you place it in any other location, Spring MVC validation will not work as desired. In fact, your validation rules will be ignored.
+        System.out.println("Name:|"+thePerson.getName()+"|");
+        //if webapp is passed with several white spaces as input name for person, validations get passed !! this is a problem
         if( theBindingResult.hasErrors() )
         {
             return "MVCValidate/addPersonForm";
