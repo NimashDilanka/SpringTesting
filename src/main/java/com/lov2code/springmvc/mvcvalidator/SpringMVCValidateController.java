@@ -31,6 +31,15 @@ public class SpringMVCValidateController
         //In the method signature, the BindingResult parameter must immediately after the model attribute.
         //If you place it in any other location, Spring MVC validation will not work as desired. In fact, your validation rules will be ignored.
         System.out.println("Name:|"+thePerson.getName()+"|");
+
+        System.out.println("Binding results: |"+theBindingResult+"|\n\n\n\n");
+        //note
+        //error in console would be
+        //Field error in object 'person' on field 'age': rejected value [DCFDWEA];
+        //codes [typeMismatch.person.age,typeMismatch.age,typeMismatch.java.lang.Integer,typeMismatch];
+        //what we did was overriding one of these error massages on properties file earlier
+
+
         //if webapp is passed with several white spaces as input name for person, validations get passed !! this is a problem
         if( theBindingResult.hasErrors() )
         {
