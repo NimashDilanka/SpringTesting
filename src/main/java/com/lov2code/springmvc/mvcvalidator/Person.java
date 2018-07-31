@@ -18,9 +18,10 @@ public class Person
     @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "regex pattern not matched")
     private String name;
 
+    @NotNull(message = "integer is required")
     @Min( value = 1,message = "number should be greater or equal to 1")
     @Max( value = 10,message = "number should be less or equal to 10")
-    private int age;
+    private Integer age;
 
 
     //region GETTER_SETTER
@@ -34,12 +35,12 @@ public class Person
         this.name = name;
     }
 
-    public int getAge()
+    public Integer getAge()
     {
         return age;
     }
 
-    public void setAge( int age )
+    public void setAge( Integer age )
     {
         this.age = age;
     }

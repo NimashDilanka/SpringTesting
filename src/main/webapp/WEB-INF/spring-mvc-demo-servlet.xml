@@ -19,7 +19,7 @@
 
     <!-- Step 5: Define Spring MVC view resolver -->
     <!-- Define Spring MVC view resolver-->
-    <!-- when your app provides a 'view' name, Spring MVC will prepend the prefix and append the suffix-->
+    <!-- when your app provides ab 'view' name, Spring MVC will prepend the prefix and append the suffix-->
     <!-- ex:/WEB-INF/view/show-student-list.jsp-->
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -30,4 +30,12 @@
     <!-- mapping resources with new location calling name-->
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resourceLocation/**" location="/" />
+
+    <!-- load custom massage resource -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+          <property name="basename" value="/ErrorMsg/messages"/>
+    <!-- note that in here root directory would be inside of resources folder of maven structure -->
+
+    </bean>
 </beans>

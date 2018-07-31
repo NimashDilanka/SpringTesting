@@ -1,6 +1,5 @@
 package com.lov2code.springmvc.mvcvalidator;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

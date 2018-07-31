@@ -42,7 +42,7 @@
     </bean>
 
 
-    <!-- define a method to run when a bean creates and run when bean get destroy-->
+    <!-- define ab method to run when ab bean creates and run when bean get destroy-->
     <bean id="myinitCoach"
           class = "com.lov2code.springdemo.TrackCoach"
           init-method="doStartupStuffFunction"
