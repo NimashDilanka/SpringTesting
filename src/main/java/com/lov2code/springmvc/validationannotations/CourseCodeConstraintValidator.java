@@ -23,6 +23,10 @@ public class CourseCodeConstraintValidator implements ConstraintValidator<Course
     {
         //this is where we check validation logic
         //if string which get validated starts with given value, pass the test
+        if( theCourseCode == null )
+        {
+            return false;
+        }
         return theCourseCode.startsWith( value );
 
     }
