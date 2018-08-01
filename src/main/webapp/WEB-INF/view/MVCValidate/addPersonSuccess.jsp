@@ -8,6 +8,7 @@
     Success
     Person is added: ${person.name}<br>
     Person age: ${person.age}<br>
+    Person Course Code: ${person.courseCode}
 </body>
 
 </html>
