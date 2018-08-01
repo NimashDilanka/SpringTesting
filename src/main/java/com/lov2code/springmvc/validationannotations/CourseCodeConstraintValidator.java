@@ -10,7 +10,7 @@ public class CourseCodeConstraintValidator implements ConstraintValidator<Course
 
 
     //for my use create some variables
-    private String value;
+    private String[] value;
     private String message;
     @Override public void initialize( CourseCodeValidation courseCodeValidationObj )
     {
@@ -27,7 +27,13 @@ public class CourseCodeConstraintValidator implements ConstraintValidator<Course
         {
             return false;
         }
-        return theCourseCode.startsWith( value );
-
+        for( String i : value )
+        {
+            if( theCourseCode.startsWith( i ) )
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

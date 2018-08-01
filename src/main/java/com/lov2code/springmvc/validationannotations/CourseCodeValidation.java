@@ -16,7 +16,7 @@ public @interface CourseCodeValidation
     //@CourseCodeValidation(value = "LUV", message = "must start with LUV")
 
     //define default attributes
-    public String value() default "defaultVal";
+    public String[] value() default {"defaultVal"};
     public String message() default "defaultMessage";
 
     //define default groups

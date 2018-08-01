@@ -25,7 +25,7 @@ public class Person
     private Integer age;
 
     //creating a custom annotation in spring
-    @CourseCodeValidation(value = "LUV", message = "must start with LUV")
+    @CourseCodeValidation(value = {"LUV","TOPS"}, message = "must start with LUV")
     private String courseCode;
 
 
