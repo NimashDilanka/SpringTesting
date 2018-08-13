@@ -50,14 +50,14 @@ public class Main
             session.beginTransaction();
             Student stuRetrieve = session.get( Student.class, StudentID ); //retrieve a obj already on DB
 
-            //update a student obj
-            stuRetrieve.setFirstName( "updated first name" );
+            //delete a student obj
+            session.delete( stuRetrieve );
             session.getTransaction().commit();
 
             //bulk update
             session = factory.getCurrentSession();
             session.beginTransaction();
-            session.createQuery( "update Student set email = 'foo@gmail.com'" )
+            session.createQuery( "delete from  Student where id=3" )
                    .executeUpdate();
             session.getTransaction().commit();
 
