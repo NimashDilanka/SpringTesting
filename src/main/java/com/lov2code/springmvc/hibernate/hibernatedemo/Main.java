@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class Main
 {
     public static void main( String[] args )
@@ -20,6 +22,7 @@ public class Main
 
         try
         {
+            /*
             //use the session object to save java object
             Student student = new Student( "name1", "last name1", "asd1@gmail.com" );
             Student student1 = new Student( "name2", "last name2", "asd1@gmail.com" );
@@ -35,11 +38,12 @@ public class Main
 
             //commit transaction
             session.getTransaction().commit();
+            */
 
             System.out.println("\n\ndone inserting\n\n");
 
             //set student primary key
-            int StudentID = 99;
+            int StudentID = 9;
 
             //retrieving obj though new session
             session = factory.getCurrentSession();
@@ -48,6 +52,17 @@ public class Main
             session.getTransaction().commit();
             System.out.println( "obj retrieved :"+ stuRetrieve );
             System.out.println(stuRetrieve.toString());
+
+            //HQL Hibernate Query Languaga
+            session = factory.getCurrentSession();
+            session.beginTransaction();
+
+            List<Student> students = session
+                    .createQuery( "from Student s where s.lasttName = 'last name1' OR s.firstName='Dif' OR s.email LIKE '%ab@gmail'" )
+                    .getResultList();
+            session.getTransaction().commit();
+            System.out.println( "obj retrieved :" + students );
+            System.out.println( students.toString() );
 
 
         }
