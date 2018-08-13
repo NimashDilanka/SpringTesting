@@ -38,6 +38,10 @@ public class Student
         this.email = email;
     }
 
+    public Student()
+    {
+    }
+
     //region GETTER_SETTER
     public int getId()
     {

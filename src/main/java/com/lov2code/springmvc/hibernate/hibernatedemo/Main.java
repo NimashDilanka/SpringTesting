@@ -36,7 +36,20 @@ public class Main
             //commit transaction
             session.getTransaction().commit();
 
-            System.out.println("\n\ndone\n\n");
+            System.out.println("\n\ndone inserting\n\n");
+
+            //set student primary key
+            int StudentID = 99;
+
+            //retrieving obj though new session
+            session = factory.getCurrentSession();
+            session.beginTransaction();
+            Student stuRetrieve = session.get( Student.class, StudentID ); //(Obj type, primary key)
+            session.getTransaction().commit();
+            System.out.println( "obj retrieved :"+ stuRetrieve );
+            System.out.println(stuRetrieve.toString());
+
+
         }
         finally
         {
