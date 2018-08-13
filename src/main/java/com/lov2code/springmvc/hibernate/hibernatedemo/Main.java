@@ -21,13 +21,17 @@ public class Main
         try
         {
             //use the session object to save java object
-            Student student = new Student( "name", "last name", "asd@gmail.com" );
+            Student student = new Student( "name1", "last name1", "asd1@gmail.com" );
+            Student student1 = new Student( "name2", "last name2", "asd1@gmail.com" );
+            Student student2 = new Student( "name3", "last name2", "asd1@gmail.com" );
 
             //start a transaction
             session.beginTransaction();
 
             //save the student object
             session.save( student );
+            session.save( student1 );
+            session.save( student2 );
 
             //commit transaction
             session.getTransaction().commit();
@@ -36,7 +40,9 @@ public class Main
         }
         finally
         {
+            session.close();
             factory.close();
+
         }
     }
 }
