@@ -48,12 +48,20 @@ public class Main
             //retrieving obj though new session
             session = factory.getCurrentSession();
             session.beginTransaction();
-            Student stuRetrieve = session.get( Student.class, StudentID ); //(Obj type, primary key)
-            session.getTransaction().commit();
-            System.out.println( "obj retrieved :"+ stuRetrieve );
-            System.out.println(stuRetrieve.toString());
+            Student stuRetrieve = session.get( Student.class, StudentID ); //retrieve a obj already on DB
 
-            //HQL Hibernate Query Languaga
+            //update a student obj
+            stuRetrieve.setFirstName( "updated first name" );
+            session.getTransaction().commit();
+
+            //bulk update
+            session = factory.getCurrentSession();
+            session.beginTransaction();
+            session.createQuery( "update Student set email = 'foo@gmail.com'" )
+                   .executeUpdate();
+            session.getTransaction().commit();
+
+            //HQL Hibernate Query Language
             session = factory.getCurrentSession();
             session.beginTransaction();
 
