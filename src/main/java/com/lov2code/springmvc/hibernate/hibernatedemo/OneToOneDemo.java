@@ -13,30 +13,32 @@ public class OneToOneDemo
     public static void main( String[] args )
     {
         //create session factory
-        SessionFactory factory = new Configuration()
+
+
+        try (SessionFactory factory = new Configuration()
                 .configure( "hibernate.cfg.xml" )
                 .addAnnotatedClass( Instructor.class )
                 .addAnnotatedClass( InstructorDetail.class )
                 .buildSessionFactory();
-
-        try
+             Session session = factory.getCurrentSession())
         {
             //create a session
-            Session session = factory.getCurrentSession();
+
             session.beginTransaction();
-            InstructorDetail instructorDetail = session.get( InstructorDetail.class, 3 );
-            System.out.println(instructorDetail.toString());
-            System.out.println("related instructor:" +instructorDetail.getInstructor());
-            System.out.println("related instructor's instructor detail:" +instructorDetail.getInstructor().getInstructorDetail());
-            System.out.println("related instructor's instructor detail's instructor:" +instructorDetail.getInstructor().getInstructorDetail().getInstructor());
+            InstructorDetail instructorDetail = session.get( InstructorDetail.class, 3333 );
+            System.out.println( instructorDetail.toString() );
+            System.out.println( "related instructor:" + instructorDetail.getInstructor() );
+            System.out.println( "related instructor's instructor detail:" + instructorDetail.getInstructor().getInstructorDetail() );
+            System.out.println( "related instructor's instructor detail's instructor:" + instructorDetail.getInstructor().getInstructorDetail().getInstructor() );
 
             session.delete( instructorDetail );
             session.getTransaction().commit();
         }
-        finally
+        catch( Exception ex )
         {
-            factory.close();
+            ex.printStackTrace();
         }
+
     }
 
 }
