@@ -2,11 +2,13 @@ package com.lov2code.springmvc.hibernate.entityset;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -26,6 +28,12 @@ public class InstructorDetail
 
     @Column(name = "hobby")
     private String hobby;
+
+    //mapped by tells hibernate that:
+    //look at "instructorDetail" property in Instructor class
+    //use information from Instructor class @JoinColumn(...) to find out associated instructor.
+    @OneToOne(mappedBy = "instructorDetail",cascade = CascadeType.ALL)
+    private Instructor instructor;
 
     public InstructorDetail(String youtubeChannel, String hobby )
     {
@@ -65,5 +73,15 @@ public class InstructorDetail
     public void setHobby( String hobby )
     {
         this.hobby = hobby;
+    }
+
+    public Instructor getInstructor()
+    {
+        return instructor;
+    }
+
+    public void setInstructor( Instructor instructor )
+    {
+        this.instructor = instructor;
     }
 }

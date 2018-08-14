@@ -23,29 +23,14 @@ public class OneToOneDemo
         {
             //create a session
             Session session = factory.getCurrentSession();
-
-            Instructor instructor = new Instructor( "insName", "lastName", "email" );
-            InstructorDetail instructorDetail = new InstructorDetail( "youtube channel", "hobby" );
-
-            //associate the objects
-            instructor.setInstructorDetail( instructorDetail );
-
             session.beginTransaction();
-            session.save( instructor );
-            session.getTransaction().commit();
+            InstructorDetail instructorDetail = session.get( InstructorDetail.class, 3 );
+            System.out.println(instructorDetail.toString());
+            System.out.println("related instructor:" +instructorDetail.getInstructor());
+            System.out.println("related instructor's instructor detail:" +instructorDetail.getInstructor().getInstructorDetail());
+            System.out.println("related instructor's instructor detail's instructor:" +instructorDetail.getInstructor().getInstructorDetail().getInstructor());
 
-            session = factory.getCurrentSession();
-            session.beginTransaction();
-            Instructor insResult = session.get( Instructor.class, 2 );
-            if( insResult == null )
-            {
-                System.out.println( "result null" );
-            }
-            else
-            {
-                session.delete( insResult ); //will delete detail obj also.
-
-            }
+            session.delete( instructorDetail );
             session.getTransaction().commit();
         }
         finally
