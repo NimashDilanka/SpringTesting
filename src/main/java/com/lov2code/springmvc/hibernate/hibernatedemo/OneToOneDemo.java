@@ -25,11 +25,15 @@ public class OneToOneDemo
             //create a session
 
             session.beginTransaction();
-            InstructorDetail instructorDetail = session.get( InstructorDetail.class, 3333 );
+            InstructorDetail instructorDetail = session.get( InstructorDetail.class, 6 );
             System.out.println( instructorDetail.toString() );
             System.out.println( "related instructor:" + instructorDetail.getInstructor() );
             System.out.println( "related instructor's instructor detail:" + instructorDetail.getInstructor().getInstructorDetail() );
             System.out.println( "related instructor's instructor detail's instructor:" + instructorDetail.getInstructor().getInstructorDetail().getInstructor() );
+
+            //break bi directional link first
+            //otherwise instructor->instructor detail mapping gets violated
+            instructorDetail.getInstructor().setInstructorDetail( null );
 
             session.delete( instructorDetail );
             session.getTransaction().commit();

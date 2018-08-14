@@ -12,7 +12,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
-
 @Entity
 @Table(name = "nimash_test_instructor_detail")
 public class InstructorDetail
@@ -32,10 +31,10 @@ public class InstructorDetail
     //mapped by tells hibernate that:
     //look at "instructorDetail" property in Instructor class
     //use information from Instructor class @JoinColumn(...) to find out associated instructor.
-    @OneToOne(mappedBy = "instructorDetail",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Instructor instructor;
 
-    public InstructorDetail(String youtubeChannel, String hobby )
+    public InstructorDetail( String youtubeChannel, String hobby )
     {
         this.youtubeChannel = youtubeChannel;
         this.hobby = hobby;
